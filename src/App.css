@@ -1,0 +1,357 @@
+/* Birthday Screen*/
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Indie+Flower&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+  background: #000; 
+  height: 100%;
+  font-family: "Indie Flower", cursive;
+}
+
+
+.birthday-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 30%, #2b00ff, #ff0000);
+  color: #000000;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  font-family: "Indie Flower", cursive;
+}
+
+
+.birthday-screen::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.30;
+  filter: hue-rotate(270deg) brightness(10);
+  animation: twinkle 30s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes waveFlag {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+.birthday-screen::after {
+  content: "";
+  position: absolute;
+  top: 4rem;
+  right: 7rem;
+  width: 20rem;
+  height: 15rem;
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 10px #ff0000);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+
+  animation: waveFlag 4s ease-in-out infinite;
+  transform-origin: center bottom; 
+}
+
+@keyframes twinkle {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-200px, -200px); } 
+}
+
+.birthday-title {
+  font-size: 4rem;
+  color: #ffffff;
+  text-shadow:
+    0 0 8px #ffa3a3,
+    0 0 20px #e25e5e,
+    0 0 30px #fc4f4f;
+  margin-bottom: 0.7rem;
+  z-index: 1;
+
+  animation: slideInTitle 2.5s ease-out forwards;
+}
+
+@keyframes slideInTitle {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw) scale(0.95);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(15px) scale(1.02); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+
+.birthday-message {
+  max-width: 1000px;
+  font-size: 2rem;
+  font-style: italic;
+  color: #ffffffcc;
+  margin-bottom: 1.8rem;
+  line-height: 1.5;
+  z-index: 1;
+}
+
+.birthday-image {
+  width: 300px; /* or max-width: 100% for responsiveness */
+  border-radius: 12px;
+  margin: 1rem 0;
+   box-shadow:
+    0 0 0 4px red;
+}
+
+
+.sign-card {
+  background: rgba(8, 0, 255, 0.3);
+  border-radius: 15px;
+  padding: 1rem 5rem;
+  max-width: 550px;
+  margin: 0 auto 2.7rem;
+  box-shadow:
+    0 0 20px #ff7a7aaa,
+    inset 0 0 15px #ff7e7e55;
+  color: #ffcccc;
+  backdrop-filter: blur(12px);
+  border: 1px solid #ff7e7eaa;
+  z-index: 1;
+  font-size: 1.5rem;
+}
+
+.lilith-title {
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 8px #fa0000;
+}
+
+.falling-star-emoji {
+  position: absolute;
+  top: -2rem; 
+  font-size: 2.5rem; 
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.9;
+  animation-name: fallEmoji;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  filter: drop-shadow(0 0 2px #fff);
+}
+
+@keyframes fallEmoji {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(30px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+
+/* Envelope screen */
+.envelope-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #523fff, #ffffff, red, black); 
+  color: #f70303;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  position: relative;
+  overflow-x: hidden; 
+  overflow: hidden;
+  padding: 1rem;
+   max-height: 90vh;
+    max-width: 100vw; 
+    font-family: "Indie Flower", cursive;
+}
+
+
+
+/* Text inside the card */
+.envelope-card h1,
+.envelope-card p {
+  margin: 0;
+  user-select: none;
+}
+
+@keyframes shake {
+   0% { transform: rotate(0deg); }
+  5% { transform: rotate(2deg); }
+  10% { transform: rotate(-2deg); }
+  15% { transform: rotate(2deg); }
+  20% { transform: rotate(-2deg); }
+  25% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.envelope-shake {
+  animation: shake 1s ease-in-out infinite;
+}
+
+/* Envelope card with "paper" look */
+.envelope-card {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff, #5100ff); 
+  color: #ffffff;
+  padding: 3rem 4rem;
+  border-radius: 1.2rem;
+  box-shadow:
+    inset 0 0 15px #ffffff88,
+    0 8px 20px rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 500;
+  font-size: 1.8rem;
+  max-width: 500px;
+  user-select: none;
+  z-index: 10;
+  margin-top: 4rem;
+}
+
+/* Triangle flap shape on top */
+.envelope-card::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 60px solid #5100ff;
+  border-radius: 8px 8px 0 0;
+  box-shadow: inset 0 -5px 15px #ffffff88;
+  z-index: -1;
+}
+
+/* Hover effect */
+.envelope-card:hover {
+  transform: scale(1.11) rotate(1deg);
+  box-shadow:
+    inset 0 0 20px #001effaa,
+    0 12px 30px rgba(253, 253, 253, 0.9);
+}
+
+/* Text inside the card */
+.envelope-card h1,
+.envelope-card p {
+  margin: 0;
+  user-select: none;
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .birthday-title {
+    font-size: 2.8rem;
+  }
+
+  .birthday-message {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .sign-card {
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .spotify-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .envelope-card {
+    padding: 2rem;
+    font-size: 1.4rem;
+  }
+
+  .envelope-card::before {
+    top: -50px;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 50px solid #2e0030;
+  }
+}
+
+/* Phones (480px and below) */
+@media (max-width: 480px) {
+  .birthday-title {
+    font-size: 2rem;
+  }
+
+  .birthday-message {
+    font-size: 1rem;
+  }
+
+  .sign-card {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .lilith-title {
+    font-size: 1.3rem;
+  }
+
+  .spotify-button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .birthday-screen::after {
+    font-size: 9rem;
+    top: 1rem;
+    right: 2rem;
+  }
+
+  .envelope-card {
+    padding: 3rem;
+    font-size: 1.2rem;
+    max-height: 90vh;
+  }
+
+  .envelope-card::before {
+    top: -40px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 40px solid #2e0030;
+  }
+}
